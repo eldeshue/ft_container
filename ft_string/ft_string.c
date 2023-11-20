@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/18 19:27:51 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/20 13:52:36 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string_util.h"
+#include "ft_string_member.h"
 
 static void	set_member_function(t_ft_string *this)
 {
@@ -22,8 +22,11 @@ static void	set_member_function(t_ft_string *this)
 	this->clear = ft_str_clear;
 	this->push_back = ft_str_push_back;
 	this->resize = ft_str_resize;
+	this->copy = ft_str_copy;
 	this->join = ft_str_join;
 	this->substr = ft_str_substr;
+	this->append = ft_str_append;
+	this->add = ft_str_add;
 	this->c_str = ft_str_c_str;
 	this->getline = ft_str_getline;
 }
@@ -34,7 +37,7 @@ t_ft_string	*construct_ftstr(void)
 	char			*tmp_buffer;
 
 	this = (t_ft_string *)malloc(sizeof(t_ft_string));
-	tmp_buffer = (char *)mallco(DEFAULT_FT_STRING_SIZE);
+	tmp_buffer = (char *)malloc(DEFAULT_FT_STRING_SIZE);
 	if (this == NULL || tmp_buffer == NULL)
 	{
 		free(this);
@@ -52,8 +55,10 @@ t_ft_string	*construct_ftstr_len(size_t len)
 	t_ft_string		*this;
 	char			*tmp_buffer;
 
+	if (len == 0)
+		return (NULL);
 	this = (t_ft_string *)malloc(sizeof(t_ft_string));
-	tmp_buffer = (char *)mallco(len);
+	tmp_buffer = (char *)malloc(len);
 	if (this == NULL || tmp_buffer == NULL)
 	{
 		free(this);
@@ -79,8 +84,7 @@ t_ft_string	*construct_ftstr_cstr(char *cstr)
 	{
 		if (idx == this->capacity)
 		{
-			ft_str_resize(this, 2 * this->capacity);
-			if (this == NULL)
+			if (!ft_str_resize(this, 2 * this->capacity))
 				return (NULL);
 		}
 		this->pbuffer[idx] = cstr[idx];

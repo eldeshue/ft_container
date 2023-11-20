@@ -3,12 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/17 18:36:15 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/20 14:27:59 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
+ * C++ like , norminette compatible string container.
+ * do not use this code with c++ runtime.
+
+	made by dogwak.
+*/
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
@@ -17,24 +24,24 @@
 # include <stdlib.h>
 
 /*
-typedef struct s_ft_str
+class t_ft_str
 {
-	char			*pbuffer;
-	size_t			size;
-	size_t			capacity;
-	char			(*at)(struct s_ft_str *this, size_t idx);
-	char			(*front)(struct s_ft_str *this);
-	char			(*back)(struct s_ft_str *this);
-	int				(*empty)(struct s_ft_str *this);
-	int				(*compare)(struct s_ft_str *this);
-	void			(*clear)(struct s_ft_str *this);
-	void			(*push_back)(struct s_ft_str *this, char c);
-	void			(*resize)(struct s_ft_str *this, size_t size);
-	struct s_ft_str	*(*join)(struct s_ft_str *this, struct s_ft_str *ftstr);
-	struct s_ft_str	*(*substr)(struct s_ft_str *this, size_t strt, size_t size);
-	char			*(*c_str)(struct s_ft_str *this);
-	void			getline(struct s_ft_str *this, int fd);
-}	t_ft_string;
+	char			*at(struct s_ft_str *this, size_t idx);
+	char			*front(struct s_ft_str *this);
+	char			*back(struct s_ft_str *this);
+	int				empty(struct s_ft_str *this);
+	int				compare(struct s_ft_str *this, struct s_ft_str *ftstr);
+	void			clear(struct s_ft_str *this);
+	int				push_back(struct s_ft_str *this, char c);
+	int				resize(struct s_ft_str *this, size_t size);
+	struct s_ft_str	*copy(t_ft_string *this);
+	struct s_ft_str	*join(struct s_ft_str *this, struct s_ft_str *ftstr);
+	struct s_ft_str	*substr(struct s_ft_str *this, size_t strt, size_t size);
+	int				append(t_ft_string *this, char *cstr);
+	int				add(t_ft_string *this, t_ft_string *ftstr);
+	int				*c_str(struct s_ft_str *this);
+	int				getline(struct s_ft_str *this, int fd);
+};
 */
 
 t_ft_string	*construct_ftstr(void);
