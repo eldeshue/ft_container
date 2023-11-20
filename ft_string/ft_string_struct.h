@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_struct.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:30:01 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/17 16:59:01 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/18 19:24:07 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_ft_str
 	struct s_ft_str	*(*join)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	struct s_ft_str	*(*substr)(struct s_ft_str *this, size_t strt, size_t size);
 	char			*(*c_str)(struct s_ft_str *this);
+	void			(*getline)(struct s_ft_str *this, int fd);
 }	t_ft_string;
 
 #endif

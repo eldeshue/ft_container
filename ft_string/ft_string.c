@@ -3,14 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/17 17:18:14 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/18 19:27:51 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
 #include "ft_string_util.h"
 
 static void	set_member_function(t_ft_string *this)
@@ -26,6 +25,7 @@ static void	set_member_function(t_ft_string *this)
 	this->join = ft_str_join;
 	this->substr = ft_str_substr;
 	this->c_str = ft_str_c_str;
+	this->getline = ft_str_getline;
 }
 
 t_ft_string	*construct_ftstr(void)
@@ -43,6 +43,7 @@ t_ft_string	*construct_ftstr(void)
 	}
 	this->capacity = DEFAULT_FT_STRING_SIZE;
 	this->size = 0;
+	set_member_function(this);
 	return (this);
 }
 
@@ -61,6 +62,7 @@ t_ft_string	*construct_ftstr_len(size_t len)
 	}
 	this->capacity = len;
 	this->size = 0;
+	set_member_function(this);
 	return (this);
 }
 
@@ -87,10 +89,10 @@ t_ft_string	*construct_ftstr_cstr(char *cstr)
 	return (this);
 }
 
-void	destruct_ftstr(t_ft_string *this)
+void	destruct_ftstr(t_ft_string *ftstr)
 {
-	if (this != NULL)
-		free(this->pbuffer);
-	free(this);
-	this = NULL;
+	if (ftstr != NULL)
+		free(ftstr->pbuffer);
+	free(ftstr);
+	ftstr = NULL;
 }

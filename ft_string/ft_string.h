@@ -3,22 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/17 17:17:12 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/17 18:36:15 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
-# include <stdlib.h>
 # include "ft_string_struct.h"
-
-# ifndef DEFAULT_FT_STRING_SIZE
-#  define DEFAULT_FT_STRING_SIZE 100
-# endif
+# include <stdlib.h>
 
 /*
 typedef struct s_ft_str
@@ -37,12 +33,13 @@ typedef struct s_ft_str
 	struct s_ft_str	*(*join)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	struct s_ft_str	*(*substr)(struct s_ft_str *this, size_t strt, size_t size);
 	char			*(*c_str)(struct s_ft_str *this);
+	void			getline(struct s_ft_str *this, int fd);
 }	t_ft_string;
 */
 
 t_ft_string	*construct_ftstr(void);
 t_ft_string	*construct_ftstr_len(size_t len);
 t_ft_string	*construct_ftstr_cstr(char *cstr);
-void		destruct_ftstr(t_ft_string *this);
+void		destruct_ftstr(t_ft_string *ftstr);
 
 #endif

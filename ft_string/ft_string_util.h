@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_string_util.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/17 17:19:38 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/18 19:27:56 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 # define FT_STRING_UTIL_H
 
 # include "ft_string_struct.h"
-# include "ft_string.h"
+# include <stdlib.h>
+
+# ifndef DEFAULT_FT_STRING_SIZE
+#  define DEFAULT_FT_STRING_SIZE 100
+# endif
 
 // member functions
 char		ft_str_at(t_ft_string *this, size_t idx);
@@ -28,7 +32,7 @@ void		ft_str_resize(t_ft_string *this, size_t size);
 t_ft_string	*ft_str_join(t_ft_string *this, t_ft_string *ftstr);
 t_ft_string	*ft_str_substr(t_ft_string *this, size_t start, size_t size);
 char		*ft_str_c_str(t_ft_string *this);
-// char		*getline(int fd);
+void		*ft_str_getline(t_ft_string *this, int fd);
 
 // utility functions
 
