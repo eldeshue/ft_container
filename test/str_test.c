@@ -2,6 +2,7 @@
 // cc str_test.c -L../FT_String -lftstring -o test
 #include <stdio.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include "../FT_String/ft_string.h"
 
 int main()
@@ -26,10 +27,13 @@ int main()
 	t_ft_string *test_str4 = test_str1->substr(test_str1, 0, 5);
 	printf("%s\n", test_str4->c_str(test_str4));
 	// getline
-	int test_fd = open("./getline_test_files", O_RDONLY);
+	int test_fd = open("./getline_test.txt", O_RDONLY);
 	t_ft_string *test_str5 = construct_ftstr();
 	test_str4->getline(test_str5, test_fd);
-	test_str4->getline(test_str5, test_fd);
+	printf("%s\n", test_str5->c_str(test_str5));
 	test_str4->getline(test_str5, test_fd);
 	printf("%s\n", test_str5->c_str(test_str5));
+	test_str4->getline(test_str5, test_fd);
+	printf("%s\n", test_str5->c_str(test_str5));
+	close(test_fd);
 }

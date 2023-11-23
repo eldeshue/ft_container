@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 11:33:44 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 20:30:21 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 /*
 class t_ft_str
 {
+	size_t			size;
 	char			*at(struct s_ft_str *this, size_t idx);
 	char			*front(struct s_ft_str *this);
 	char			*back(struct s_ft_str *this);

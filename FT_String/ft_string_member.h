@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 11:33:28 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 20:20:27 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,6 @@
 # ifndef DEFAULT_FT_STRING_SIZE
 #  define DEFAULT_FT_STRING_SIZE 256
 # endif
-
-// member functions
-// constant functions
 
 // string access functions
 char		*ft_str_at(t_ft_string *this, size_t idx);

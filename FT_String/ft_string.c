@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 12:37:51 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 21:51:32 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,4 @@ void	destruct_ftstr(t_ft_string *ftstr)
 	if (ftstr != NULL)
 		free(ftstr->pbuffer);
 	free(ftstr);
-	ftstr = NULL;
 }

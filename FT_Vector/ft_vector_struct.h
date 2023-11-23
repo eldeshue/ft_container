@@ -6,18 +6,23 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:14:54 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 10:58:06 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 21:46:27 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_VECTOR_STRUCT_H
 # define FT_VECTOR_STRUCT_H
 
+# include <stdlib.h>
+
+// data_size : the size of each data element, byte count.
 typedef struct s_ft_vec
 {
-	void			*pdata;
+	void			*pbuffer;
 	size_t			size;
 	size_t			capacity;
+	size_t			data_size;
+	struct s_ft_vec	*(*construct_data)(void *param);
 	void			(*delete_data)(void *data);
 	void			*(*at)(struct s_ft_vec *this, size_t idx);
 	void			*(*front)(struct s_ft_vec *this);
@@ -26,7 +31,6 @@ typedef struct s_ft_vec
 	void			(*clear)(struct s_ft_vec *this);
 	int				(*push_back)(struct s_ft_vec *this, void *elem);
 	int				(*resize)(struct s_ft_vec *this, size_t size);
-	struct s_ft_vec	*(*copy)(struct s_ft_vec *this);
 }	t_ft_vector;
 
 #endif
