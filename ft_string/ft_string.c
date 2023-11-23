@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 13:52:36 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:37:51 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_ft_string	*construct_ftstr(void)
 		free(tmp_buffer);
 		return (NULL);
 	}
+	this->pbuffer = tmp_buffer;
 	this->capacity = DEFAULT_FT_STRING_SIZE;
 	this->size = 0;
 	set_member_function(this);
@@ -65,6 +66,7 @@ t_ft_string	*construct_ftstr_len(size_t len)
 		free(tmp_buffer);
 		return (NULL);
 	}
+	this->pbuffer = tmp_buffer;
 	this->capacity = len;
 	this->size = 0;
 	set_member_function(this);
@@ -85,7 +87,11 @@ t_ft_string	*construct_ftstr_cstr(char *cstr)
 		if (idx == this->capacity)
 		{
 			if (!ft_str_resize(this, 2 * this->capacity))
+			{
+				free(this->pbuffer);
+				free(this);
 				return (NULL);
+			}
 		}
 		this->pbuffer[idx] = cstr[idx];
 		this->size++;

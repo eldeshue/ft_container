@@ -6,12 +6,14 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:30:01 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 14:28:25 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 11:34:21 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_STRUCT_H
 # define FT_STRING_STRUCT_H
+
+# include <stdlib.h>
 
 typedef struct s_ft_str
 {
@@ -22,16 +24,15 @@ typedef struct s_ft_str
 	char			*(*front)(struct s_ft_str *this);
 	char			*(*back)(struct s_ft_str *this);
 	int				(*empty)(struct s_ft_str *this);
-	int				(*compare)(struct s_ft_str *this);
 	int				(*compare)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	void			(*clear)(struct s_ft_str *this);
 	int				(*push_back)(struct s_ft_str *this, char c);
 	int				(*resize)(struct s_ft_str *this, size_t size);
-	struct s_ft_str	*(*copy)(t_ft_string *this);
+	struct s_ft_str	*(*copy)(struct s_ft_str *this);
 	struct s_ft_str	*(*join)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	struct s_ft_str	*(*substr)(struct s_ft_str *this, size_t strt, size_t size);
-	int				(*append)(struct s_ft_string *this, char *cstr);
-	int				(*add)(struct s_ft_string *this, struct s_ft_string *ftstr);
+	int				(*append)(struct s_ft_str *this, char *cstr);
+	int				(*add)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	char			*(*c_str)(struct s_ft_str *this);
 	int				(*getline)(struct s_ft_str *this, int fd);
 }	t_ft_string;

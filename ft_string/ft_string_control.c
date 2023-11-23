@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:59 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 13:54:27 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 12:42:13 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	ft_str_add(t_ft_string *this, t_ft_string *ftstr)
 	size_t			idx;
 
 	idx = -1;
-	while (idx < ftstr->size)
+	while (++idx < ftstr->size)
 		if (!ft_str_push_back(this, ftstr->pbuffer[idx]))
 			return (0);
 	return (1);

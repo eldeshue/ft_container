@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 14:26:56 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 11:33:28 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FT_STRING_MEMBER_H
 
 # include "ft_string_struct.h"
-# include <stdlib.h>
 
 # ifndef DEFAULT_FT_STRING_SIZE
 #  define DEFAULT_FT_STRING_SIZE 256

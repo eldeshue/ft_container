@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:55:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 14:35:04 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 13:40:51 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	ft_str_getline(t_ft_string *this, int fd)
 
 	if (fd < 0)
 		return (-1);
+	this->size = 0;
 	input_char = -1;
 	total_size = 0;
 	read_size = read(fd, &input_char, 1);

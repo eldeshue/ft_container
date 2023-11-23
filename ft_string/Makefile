@@ -1,43 +1,32 @@
-CC = cc
-
-CXXFLAGS = -Wall -Wextra -Werror
-
-SRC_DIR = ./src
-
-OBJ_DIR = ./obj
-
-BONUS_DIR = ./bonus
-
 # result file name
-TARGET =
+NAME = libftstring.a
 
-BONUS = 
+# compiler
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-SRCS = $(notdir $(wildcard $(SRC_DIR)/*.c))
+AR = ar
+ARFLAGS = -src
+
+SRCS = ft_string.c ft_string_access.c ft_string_control.c \
+		ft_string_generate.c ft_string_utility.c\
 
 OBJS = $(SRCS:.c=.o)
 
-OBJECTS = $(patsubst %.o, $(OBJ_DIR)/%.o,$(OBJS))
+all: $(NAME)
 
-.PHONY: clean fclean re all bonus
+%.o : %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(TARGET) 
-
-$(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
-	$(CC) $(CXXFLAGS) -c $< -o $@ $(LDFLAGS)
-
-$(TARGET) : $(OBJECTS)
-	$(CC) $(CXXFLAGS) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
-
-# bonus target build
-$(BONUS) :
-
-bonus: $(BONUS)
+$(NAME) : $(OBJS)
+	$(AR) $(ARFLAGS) $@ $^
 
 clean:
-	rm -f $(OBJECTS) 
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(TARGET) $(BONUS)
-	
+	rm -f $(NAME)
+
 re: fclean all
+
+.PHONY: clean fclean re all

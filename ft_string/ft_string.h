@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/20 14:27:59 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/23 11:33:44 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define FT_STRING_H
 
 # include "ft_string_struct.h"
-# include <stdlib.h>
 
 /*
 class t_ft_str
