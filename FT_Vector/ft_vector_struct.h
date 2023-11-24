@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:14:54 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 21:46:27 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:46:47 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct s_ft_vec
 	size_t			size;
 	size_t			capacity;
 	size_t			data_size;
-	struct s_ft_vec	*(*construct_data)(void *param);
+	int				(*construct_data)(void *address, void *param);
 	void			(*delete_data)(void *data);
 	void			*(*at)(struct s_ft_vec *this, size_t idx);
 	void			*(*front)(struct s_ft_vec *this);

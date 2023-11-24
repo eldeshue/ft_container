@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:04:45 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 21:37:51 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/24 13:58:31 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,8 @@
 
 char	*ft_str_at(t_ft_string *this, size_t idx)
 {
-	if (this->size >= idx)
-	{
-		if (this->capacity >= idx)
-		{
-			while (this->capacity >= idx)
-				if (!ft_str_resize(this, this->capacity * 2))
-					return (NULL);
-		}
-		while (this->size <= idx)
-			this->pbuffer[this->size++] = ' ';
-	}
+	if (this->size <= idx)
+		return (NULL);
 	return (this->pbuffer + idx);
 }
 

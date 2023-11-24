@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:12:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 21:44:07 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:46:20 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 /*
 class t_ft_vector
 {
-	size_t			size;
 	void			*at(struct s_ft_vec *this, size_t idx);
 	void			*front(struct s_ft_vec *this);
 	void			*back(struct s_ft_vec *this);
@@ -36,8 +35,18 @@ class t_ft_vector
 }
 */
 
-t_ft_vector	*construct_ftvec(void *(*c)(void *p), void (*d)(void *d), size_t s);
-t_ft_vector	*construct_ftvec_copy(t_ft_vector *origin);
+// default constructor
+t_ft_vector	*construct_ftvec(
+				int (*cd)(void *paddr, void *pparam),
+				void (*dd)(void *pparam),
+				size_t s);
+
+// copy constructor
+t_ft_vector	*construct_ftvec_copy(
+				t_ft_vector *src,
+				int (*copy)(void *pdst_node, void *psrc_node));
+
+// destructor
 void		destruct_ftvec(t_ft_vector *this);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:27:44 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 22:20:20 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/24 19:49:37 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ static void	set_member_function(t_ft_vector *this)
 }
 
 // default constructor
-t_ft_vector	*construct_ftvec(void *(*c)(void *p), void (*d)(void *d), size_t s)
+t_ft_vector	*construct_ftvec(
+				int (*cd)(void *paddr, void *pparam),
+				void (*dd)(void *pparam),
+				size_t s)
 {
 	t_ft_vector	*this;
 	void		*tmp_buffer;
 
 	this = (t_ft_vector *)malloc(sizeof(t_ft_vector));
-	tmp_buffer = (void *)malloc(sizeof(void *) * DEFAULT_FT_VECTOR_SIZE);
+	tmp_buffer = malloc(s * DEFAULT_FT_VECTOR_SIZE);
 	if (this == NULL || tmp_buffer == NULL)
 	{
 		free(this);
@@ -38,31 +41,12 @@ t_ft_vector	*construct_ftvec(void *(*c)(void *p), void (*d)(void *d), size_t s)
 		return (NULL);
 	}
 	this->pbuffer = tmp_buffer;
+	this->construct_data = cd;
+	this->delete_data = dd;
 	this->capacity = DEFAULT_FT_VECTOR_SIZE;
 	this->size = 0;
 	this->data_size = s;
 	set_member_function(this);
-	return (this);
-}
-
-// copy constructor
-// only works for level 1 deep copy.
-// operation at object with more than level 1 is undefined.
-t_ft_vector	*construct_ftvec_copy(t_ft_vector *origin)
-{
-	t_ft_vector	*this;
-	size_t		local_idx;
-	void		*cur_pos;
-
-	this = construct_ftvec(origin->construct_data,
-			origin->delete_data, origin->data_size);
-	if (this == NULL)
-		return (NULL);
-	this->size = -1;
-	while (++(this->size) < origin->size)
-	{
-		// implement further memory deep copy
-	}
 	return (this);
 }
 
@@ -74,10 +58,40 @@ void	destruct_ftvec(t_ft_vector *this)
 	if (this->pbuffer != NULL)
 	{
 		while (++idx < this->size)
-		{
-			this->delete_data(this->pbuffer + (idx * this->data_size));
-		}
+			this->delete_data(this->pbuffer + idx * this->data_size);
 		free(this->pbuffer);
 	}
 	free(this);
+}
+
+// copy constructor, deep
+// only works for level 1 deep copy.
+// operation at object with more than level 1 is undefined.
+t_ft_vector	*construct_ftvec_copy(
+				t_ft_vector *src,
+				int (*copy)(void *pdst_node, void *psrc_node))
+{
+	t_ft_vector		*this;
+
+	this = construct_ftvec(src->construct_data, src->delete_data,
+			src->data_size);
+	if (this == NULL)
+		return (NULL);
+	if (!this->resize(this, src->capacity))
+	{
+		destruct_ftvec(this);
+		return (NULL);
+	}
+	this->size = 0;
+	while (this->size < src->size)
+	{
+		if (copy(this->at(this, this->size), src->at(src, this->size)))
+		{
+			this->size++;
+			destruct_ftvec(this);
+			return (NULL);
+		}
+		this->size++;
+	}
+	return (this);
 }
