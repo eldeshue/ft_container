@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:27:44 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/24 19:49:37 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:14:01 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	set_member_function(t_ft_vector *this)
 // default constructor
 t_ft_vector	*construct_ftvec(
 				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *pparam),
+				void (*dd)(void *paddr),
 				size_t s)
 {
 	t_ft_vector	*this;

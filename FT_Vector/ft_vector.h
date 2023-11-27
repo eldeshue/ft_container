@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:12:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/24 19:46:20 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/27 19:13:51 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class t_ft_vector
 // default constructor
 t_ft_vector	*construct_ftvec(
 				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *pparam),
+				void (*dd)(void *paddr),
 				size_t s);
 
 // copy constructor
