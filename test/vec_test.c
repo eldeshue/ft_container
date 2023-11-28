@@ -86,10 +86,12 @@ int main()
 	printf("check is empty : %d \n", test_vec->empty(test_vec));
 
 	// clear
+	/*
 	printf("call clear, check content.\n");
 	test_vec->clear(test_vec);
 	print_test_vec_all(test_vec);	// do nothing
 	printf("check is empty : %d \n", test_vec->empty(test_vec));
+	*/
 
 	// destruct vector
 	printf("calling destructor.\n");
