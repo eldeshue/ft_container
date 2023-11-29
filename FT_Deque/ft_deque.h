@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:33:10 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/28 19:53:37 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/29 18:35:44 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ t_ft_deque	*construct_ftdeque(
 // copy constructor
 t_ft_deque	*construct_ftdeque_copy(
 				t_ft_deque *src,
-				int (*copy)(void *pdst_node, void *psrc_node));
+				int (*copy)(void *pdst_data, void *psrc_data));
 
 // destructor
 void		destruct_ftdeque(t_ft_deque *this);
