@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:27:44 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/27 19:14:01 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/29 19:05:16 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	destruct_ftvec(t_ft_vector *this)
 // operation at object with more than level 1 is undefined.
 t_ft_vector	*construct_ftvec_copy(
 				t_ft_vector *src,
-				int (*copy)(void *pdst_node, void *psrc_node))
+				int (*copy)(void *pdst_data, void *psrc_data))
 {
 	t_ft_vector		*this;
 

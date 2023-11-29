@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:12:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/27 19:13:51 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/29 19:05:31 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ t_ft_vector	*construct_ftvec(
 // copy constructor
 t_ft_vector	*construct_ftvec_copy(
 				t_ft_vector *src,
-				int (*copy)(void *pdst_node, void *psrc_node));
+				int (*copy)(void *pdst_data, void *psrc_data));
 
 // destructor
 void		destruct_ftvec(t_ft_vector *this);
