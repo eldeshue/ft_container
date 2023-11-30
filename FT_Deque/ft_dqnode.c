@@ -3,21 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dqnode.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:05:09 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/29 19:35:05 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/30 16:53:25 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_deque_member.h"
 
-t_ft_dqnode	*construct_ftdqnode(
-				void *pparam,
-				int (*cd)(void *paddr, void *pparam)
-				)
+t_ft_dqnode	*construct_ftdqnode(void *pparam, int (*cd)(void *paddr,
+			void *pparam))
 {
-	t_ft_dqnode		*this;
+	t_ft_dqnode	*this;
 
 	this = (t_ft_dqnode *)malloc(sizeof(t_ft_dqnode));
 	if (this == NULL || cd(this->pdata, pparam))
@@ -25,23 +23,23 @@ t_ft_dqnode	*construct_ftdqnode(
 		free(this);
 		return (NULL);
 	}
+	this->pnext = NULL;
+	this->pprev = NULL;
 	return (this);
 }
 
-t_ft_dqnode	*construct_ftdqnode_copy(
-				t_ft_dqnode *src,
-				int (*copy)(void *pdst_data, void *psrc_data)
-				)
+t_ft_dqnode	*construct_ftdqnode_copy(t_ft_dqnode *src,
+		int (*copy)(void *pdst_data, void *psrc_data))
 {
-	t_ft_dqnode		*this;
+	t_ft_dqnode	*new_node;
 
-	this = (t_ft_dqnode *)malloc(sizeof(t_ft_dqnode));
-	if (this == NULL || copy(this->pdata, src->pdata))
+	new_node = (t_ft_dqnode *)malloc(sizeof(t_ft_dqnode));
+	if (new_node == NULL || copy(new_node->pdata, src->pdata))
 	{
-		free(this);
+		free(new_node);
 		return (NULL);
 	}
-	return (this);
+	return (new_node);
 }
 
 void	destruct_ftdqnode(t_ft_dqnode *pnode, void (*dd)(void *paddr))
