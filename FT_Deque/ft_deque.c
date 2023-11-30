@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:55:07 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/30 17:00:43 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/30 19:52:03 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_ft_deque	*construct_ftdeque_copy(t_ft_deque *src,
 	src_dqnode = src->start_node;
 	while (this->size < src->size)
 	{
-		new_dqnode = construct_ftdqnode_copy(src_dqnode, copy);
+		new_dqnode = construct_ftdqnode_copy(src_dqnode, this->data_size, copy);
 		if (new_dqnode == NULL || !ft_deque_push_back_node(this, new_dqnode))
 		{
 			destruct_ftdqnode(new_dqnode, this->destruct_data);

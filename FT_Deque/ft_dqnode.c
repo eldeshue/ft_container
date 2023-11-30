@@ -6,19 +6,22 @@
 /*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:05:09 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/30 16:53:25 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/30 19:56:24 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_deque_member.h"
 
-t_ft_dqnode	*construct_ftdqnode(void *pparam, int (*cd)(void *paddr,
-			void *pparam))
+t_ft_dqnode	*construct_ftdqnode(void *pparam, size_t data_size,
+		int (*cd)(void *paddr, void *pparam))
 {
 	t_ft_dqnode	*this;
 
 	this = (t_ft_dqnode *)malloc(sizeof(t_ft_dqnode));
-	if (this == NULL || cd(this->pdata, pparam))
+	if (this == NULL)
+		return (NULL);
+	this->pdata = malloc(data_size);
+	if (this->pdata == NULL || !cd(this->pdata, pparam))
 	{
 		free(this);
 		return (NULL);
@@ -28,13 +31,16 @@ t_ft_dqnode	*construct_ftdqnode(void *pparam, int (*cd)(void *paddr,
 	return (this);
 }
 
-t_ft_dqnode	*construct_ftdqnode_copy(t_ft_dqnode *src,
+t_ft_dqnode	*construct_ftdqnode_copy(t_ft_dqnode *src, size_t data_size,
 		int (*copy)(void *pdst_data, void *psrc_data))
 {
 	t_ft_dqnode	*new_node;
 
 	new_node = (t_ft_dqnode *)malloc(sizeof(t_ft_dqnode));
-	if (new_node == NULL || copy(new_node->pdata, src->pdata))
+	if (new_node == NULL)
+		return (NULL);
+	new_node->pdata = malloc(data_size);
+	if (new_node->pdata == NULL || !copy(new_node->pdata, src->pdata))
 	{
 		free(new_node);
 		return (NULL);

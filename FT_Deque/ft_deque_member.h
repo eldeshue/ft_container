@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deque_member.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:53:58 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/29 19:47:25 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/30 19:50:34 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,10 @@ int			ft_deque_push_back_node(t_ft_deque *this, t_ft_dqnode *node);
 int			ft_deque_push_back(t_ft_deque *this, void *pparam);
 
 // node
-t_ft_dqnode	*construct_ftdqnode(
-				void *pparam,
-				int (*cd)(void *paddr, void *pparam)
-				);
-t_ft_dqnode	*construct_ftdqnode_copy(
-				t_ft_dqnode *src,
-				int (*copy)(void *pdst_data, void *psrc_data)
-				);
+t_ft_dqnode	*construct_ftdqnode(void *pparam, size_t data_size,
+				int (*cd)(void *paddr, void *pparam));
+t_ft_dqnode	*construct_ftdqnode_copy(t_ft_dqnode *src, size_t data_size,
+				int (*copy)(void *pdst_data, void *psrc_data));
 void		destruct_ftdqnode(t_ft_dqnode *pnode, void (*dd)(void *paddr));
 
 #endif
