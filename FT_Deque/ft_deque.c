@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deque.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:55:07 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/29 19:11:03 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/11/30 17:00:43 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,13 @@ static void	set_member_function(t_ft_deque *this)
 void	destruct_ftdeque(t_ft_deque *this)
 {
 	if (this == NULL)
-		return (NULL);
+		return ;
 	ft_deque_clear(this);
 	free(this);
 }
 
-t_ft_deque	*construct_ftdeque(
-				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *paddr),
-				size_t s)
+t_ft_deque	*construct_ftdeque(int (*cd)(void *paddr, void *pparam),
+		void (*dd)(void *paddr), size_t s)
 {
 	t_ft_deque	*this;
 
@@ -52,16 +50,15 @@ t_ft_deque	*construct_ftdeque(
 	return (this);
 }
 
-t_ft_deque	*construct_ftdeque_copy(
-				t_ft_deque *src,
-				int (*copy)(void *pdst_data, void *psrc_data))
+t_ft_deque	*construct_ftdeque_copy(t_ft_deque *src,
+		int (*copy)(void *pdst_data, void *psrc_data))
 {
 	t_ft_deque	*this;
 	t_ft_dqnode	*src_dqnode;
 	t_ft_dqnode	*new_dqnode;
 
-	this = construct_ftdeque(
-			src->construct_data, src->destruct_data, src->data_size);
+	this = construct_ftdeque(src->construct_data, src->destruct_data,
+			src->data_size);
 	if (this == NULL)
 		return (NULL);
 	src_dqnode = src->start_node;
