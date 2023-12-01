@@ -99,11 +99,11 @@ int main()
 	destruct_ftdeque(str_deque);
 
 	printf("========================\n");
-	// atexit(check_leak);
+	atexit(check_leak);
 	return (0);
 }
 
 void check_leak(void)
 {
-	system("leaks --list -- vec_str_test");
+	system("leaks --list -- deque_test");
 }
