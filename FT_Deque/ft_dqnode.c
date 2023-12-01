@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_dqnode.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 18:05:09 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/30 19:56:24 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/01 11:12:13 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,6 @@ void	destruct_ftdqnode(t_ft_dqnode *pnode, void (*dd)(void *paddr))
 	if (pnode == NULL)
 		return ;
 	dd(pnode->pdata);
+	free(pnode->pdata);
 	free(pnode);
 }
