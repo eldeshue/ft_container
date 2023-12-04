@@ -1,11 +1,11 @@
 
-// gcc deque_test.c -L../FT_Deque -lftdeque -L../FT_String -lftstring -o deque_test
+// gcc deque_test.c -L../ft_deque -lftdeque -L../ft_string -lftstring -o deque_test
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../FT_Deque/ft_deque.h"
-#include "../FT_String/ft_string.h"
+#include "../ft_deque/ft_deque.h"
+#include "../ft_string/ft_string.h"
 void check_leak(void);
 
 int construct_ft_string_in_deque(void *paddr, void *literal)

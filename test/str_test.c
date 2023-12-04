@@ -1,9 +1,9 @@
 
-// cc str_test.c -L../FT_String -lftstring -o test
+// cc str_test.c -L../ft_String -lftstring -o test
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "../FT_String/ft_string.h"
+#include "../ft_string/ft_string.h"
 
 int main()
 {

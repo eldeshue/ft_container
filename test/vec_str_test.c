@@ -1,10 +1,10 @@
-// cc vec_str_test.c -L../FT_Vector -lftvector -L../FT_String -lftstring -o vec_str_test
+// cc vec_str_test.c -L../ft_vector -lftvector -L../ft_string -lftstring -o vec_str_test
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include "../FT_Vector/ft_vector.h"
-#include "../FT_String/ft_string.h"
+#include "../ft_vector/ft_vector.h"
+#include "../ft_string/ft_string.h"
 void check_leak(void);
 
 int construct_ft_string_in_vec(void *paddr, void *literal)

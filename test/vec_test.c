@@ -1,7 +1,7 @@
-// cc vec_test.c -L../FT_Vector -lftvector -o vec_test
+// cc vec_test.c -L../ft_vector -lftvector -o vec_test
 #include <stdio.h>
 #include <stdlib.h>
-#include "../FT_Vector/ft_vector.h"
+#include "../ft_vector/ft_vector.h"
 
 typedef struct test_struct
 {
