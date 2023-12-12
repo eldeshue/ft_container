@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:27:58 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 12:31:35 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:01:40 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_ft_string	*ft_str_substr(t_ft_string *this, size_t start, size_t size)
 	new_string->pbuffer = tmp_buffer;
 	new_string->capacity = this->capacity;
 	new_string->size = size;
-	set_member_function(new_string);
+	set_string_member_function(new_string);
 	idx = -1;
 	while (++idx < new_string->size)
 		new_string->pbuffer[idx] = this->pbuffer[start + idx];

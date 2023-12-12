@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 12:23:34 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:01:40 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_ft_string	*new_ftstr(void)
 	this->pbuffer = tmp_buffer;
 	this->capacity = DEFAULT_FT_STRING_SIZE;
 	this->size = 0;
-	set_member_function(this);
+	set_string_member_function(this);
 	return (this);
 }
 
@@ -50,7 +50,7 @@ t_ft_string	*new_ftstr_len(size_t len)
 	this->pbuffer = tmp_buffer;
 	this->capacity = len;
 	this->size = 0;
-	set_member_function(this);
+	set_string_member_function(this);
 	return (this);
 }
 

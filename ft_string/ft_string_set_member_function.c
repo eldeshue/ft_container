@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_set_member_function.c                       :+:      :+:    :+:   */
+/*   ft_string_set_member_function.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 11:44:07 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:44:47 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:01:40 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string_member.h"
 
-void	set_member_function(t_ft_string *this)
+void	set_string_member_function(t_ft_string *this)
 {
 	this->at = ft_str_at;
 	this->front = ft_str_front;

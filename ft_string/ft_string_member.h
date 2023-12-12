@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:47:49 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:01:40 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # endif
 
 // ft_string_set_member_function
-void		set_member_function(t_ft_string *this);
+void		set_string_member_function(t_ft_string *this);
 
 // string access functions
 char		*ft_str_at(t_ft_string *this, size_t idx);
