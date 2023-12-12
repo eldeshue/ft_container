@@ -8,7 +8,9 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -src
 
-SRCS = ft_deque_access.c ft_deque_control.c ft_deque_push.c ft_deque.c ft_dqnode.c
+SRCS = ft_deque_access.c ft_deque_control.c ft_deque_push.c \
+	ft_deque_construct.c ft_deque_new.c ft_deque_set_member_function.c \
+	ft_dqnode.c \
 
 OBJS = $(SRCS:.c=.o)
 

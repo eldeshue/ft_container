@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:33:10 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/29 18:35:44 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:10:43 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,30 @@ class t_ft_deque
 */
 
 // default constructor
-t_ft_deque	*construct_ftdeque(
+t_ft_deque	construct_ftdeque(
 				int (*cd)(void *paddr, void *pparam),
 				void (*dd)(void *paddr),
 				size_t s);
 
 // copy constructor
-t_ft_deque	*construct_ftdeque_copy(
+t_ft_deque	construct_ftdeque_copy(
 				t_ft_deque *src,
 				int (*copy)(void *pdst_data, void *psrc_data));
 
 // destructor
 void		destruct_ftdeque(t_ft_deque *this);
 
+// default constructor
+t_ft_deque	*new_ftdeque(
+				int (*cd)(void *paddr, void *pparam),
+				void (*dd)(void *paddr),
+				size_t s);
+
+// copy constructor
+t_ft_deque	*new_ftdeque_copy(
+				t_ft_deque *src,
+				int (*copy)(void *pdst_data, void *psrc_data));
+
+// destructor
+void		delete_ftdeque(t_ft_deque *this);
 #endif

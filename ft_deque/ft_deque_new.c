@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deque.c                                         :+:      :+:    :+:   */
+/*   ft_deque_new.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/28 19:55:07 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/30 19:52:03 by dogwak           ###   ########.fr       */
+/*   Created: 2023/12/12 14:09:17 by dogwak            #+#    #+#             */
+/*   Updated: 2023/12/12 14:23:11 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_deque_member.h"
 
-static void	set_member_function(t_ft_deque *this)
-{
-	this->front = ft_deque_front;
-	this->back = ft_deque_back;
-	this->empty = ft_deque_empty;
-	this->clear = ft_deque_clear;
-	this->push_front = ft_deque_push_front;
-	this->push_back = ft_deque_push_back;
-	this->pop_front = ft_deque_pop_front;
-	this->pop_back = ft_deque_pop_back;
-}
-
-void	destruct_ftdeque(t_ft_deque *this)
+void	delete_ftdeque(t_ft_deque *this)
 {
 	if (this == NULL)
 		return ;
@@ -32,7 +20,7 @@ void	destruct_ftdeque(t_ft_deque *this)
 	free(this);
 }
 
-t_ft_deque	*construct_ftdeque(int (*cd)(void *paddr, void *pparam),
+t_ft_deque	*new_ftdeque(int (*cd)(void *paddr, void *pparam),
 		void (*dd)(void *paddr), size_t s)
 {
 	t_ft_deque	*this;
@@ -46,18 +34,18 @@ t_ft_deque	*construct_ftdeque(int (*cd)(void *paddr, void *pparam),
 	this->end_node = NULL;
 	this->construct_data = cd;
 	this->destruct_data = dd;
-	set_member_function(this);
+	set_deque_member_function(this);
 	return (this);
 }
 
-t_ft_deque	*construct_ftdeque_copy(t_ft_deque *src,
+t_ft_deque	*new_ftdeque_copy(t_ft_deque *src,
 		int (*copy)(void *pdst_data, void *psrc_data))
 {
 	t_ft_deque	*this;
 	t_ft_dqnode	*src_dqnode;
 	t_ft_dqnode	*new_dqnode;
 
-	this = construct_ftdeque(src->construct_data, src->destruct_data,
+	this = new_ftdeque(src->construct_data, src->destruct_data,
 			src->data_size);
 	if (this == NULL)
 		return (NULL);
@@ -68,7 +56,7 @@ t_ft_deque	*construct_ftdeque_copy(t_ft_deque *src,
 		if (new_dqnode == NULL || !ft_deque_push_back_node(this, new_dqnode))
 		{
 			destruct_ftdqnode(new_dqnode, this->destruct_data);
-			destruct_ftdeque(this);
+			delete_ftdeque(this);
 			return (NULL);
 		}
 		this->size++;

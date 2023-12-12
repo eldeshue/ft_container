@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deque_member.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 19:53:58 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/30 19:50:34 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 14:22:14 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define FT_DEQUE_MEMBER_H
 
 # include "ft_deque_struct.h"
+
+// set member function
+void		set_deque_member_function(t_ft_deque *this);
 
 // deque access
 void		*ft_deque_front(t_ft_deque *this);
