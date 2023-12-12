@@ -9,15 +9,13 @@ void check_leak(void);
 
 int construct_ft_string_in_vec(void *paddr, void *literal)
 {
-	*(t_ft_string **)paddr = construct_ftstr_cstr((char *)literal);
-	if (paddr == NULL)
-		return (0);
+	*(t_ft_string *)paddr = construct_ftstr_cstr((char *)literal);
 	return (1);
 }
 
 void destruct_ft_string_in_vec(void *paddr)
 {
-	destruct_ftstr(*(t_ft_string **)paddr);
+	destruct_ftstr((t_ft_string *)paddr);
 }
 
 void print_all(t_ft_vector *str_vec)
@@ -25,8 +23,8 @@ void print_all(t_ft_vector *str_vec)
 	for (int i = 0; i < str_vec->size; ++i)
 	{
 		//printf("%d : ", i);
-		write(1, (*(t_ft_string **)(str_vec->at(str_vec, i)))->pbuffer,
-		(*(t_ft_string **)(str_vec->at(str_vec, i)))->size);
+		write(1, (*(t_ft_string *)(str_vec->at(str_vec, i))).pbuffer,
+		(*(t_ft_string *)(str_vec->at(str_vec, i))).size);
 		write(1, "\n", 1);
 	}
 }
@@ -40,7 +38,7 @@ int main()
 	// constructor test
 	printf("call constructor\n");
 	t_ft_vector *str_vec = construct_ftvec(construct_ft_string_in_vec,
-		destruct_ft_string_in_vec, sizeof(t_ft_string *));
+		destruct_ft_string_in_vec, sizeof(t_ft_string));
 	printf("check is empty : %d \n", str_vec->empty(str_vec));
 
 	// push_back test

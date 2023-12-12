@@ -1,5 +1,5 @@
 
-// cc str_test.c -L../ft_String -lftstring -o test
+// cc str_test.c -L../ft_String -lftstring -o str_test
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
@@ -8,8 +8,8 @@
 int main()
 {
 	// add
-	t_ft_string *test_str1 = construct_ftstr_cstr("hello World");
-	t_ft_string *test_str2 = construct_ftstr_cstr("");
+	t_ft_string *test_str1 = new_ftstr_cstr("hello World");
+	t_ft_string *test_str2 = new_ftstr_cstr("");
 	for (int i = 0; i < 26; ++i)
 		test_str1->add(test_str1, test_str2);
 	// join
@@ -20,7 +20,7 @@ int main()
 	char *return_string3 = test_str3->c_str(test_str3);
 	// append, copy
 	printf("%s\n%s\n%s\n", return_string1,  return_string2, return_string3);
-	t_ft_string *append_test_str = test_str2->copy(test_str2);
+	t_ft_string *append_test_str = new_ftstr_copy(test_str2);
 	append_test_str->append(append_test_str, " appended ");
 	printf("%s\n", append_test_str->c_str(append_test_str));
 	// substr
@@ -28,7 +28,7 @@ int main()
 	printf("%s\n", test_str4->c_str(test_str4));
 	// getline
 	int test_fd = open("./getline_test.txt", O_RDONLY);
-	t_ft_string *test_str5 = construct_ftstr();
+	t_ft_string *test_str5 = new_ftstr();
 	test_str4->getline(test_str5, test_fd);
 	printf("%s\n", test_str5->c_str(test_str5));
 	test_str4->getline(test_str5, test_fd);
