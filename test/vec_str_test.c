@@ -37,26 +37,26 @@ int main()
 
 	// constructor test
 	printf("call constructor\n");
-	t_ft_vector *str_vec = construct_ftvec(construct_ft_string_in_vec,
+	t_ft_vector str_vec = construct_ftvec(construct_ft_string_in_vec,
 		destruct_ft_string_in_vec, sizeof(t_ft_string));
-	printf("check is empty : %d \n", str_vec->empty(str_vec));
+	printf("check is empty : %d \n", str_vec.empty(&str_vec));
 
 	// push_back test
 	printf("call push_back\n");
-	str_vec->push_back(str_vec, str1);
+	str_vec.push_back(&str_vec, str1);
 	for (int i = 0; i < 12; ++i)
-		str_vec->push_back(str_vec, str2);
-	str_vec->push_back(str_vec, str3);
+		str_vec.push_back(&str_vec, str2);
+	str_vec.push_back(&str_vec, str3);
 
 	// content check
 	printf("call at, check content.\n");
-	print_all(str_vec);
+	print_all(&str_vec);
 
 	// resize
 	printf("call resize, change to 5, check content.\n");
-	str_vec->resize(str_vec, 5);
-	print_all(str_vec);
-	printf("check is empty : %d \n", str_vec->empty(str_vec));
+	str_vec.resize(&str_vec, 5);
+	print_all(&str_vec);
+	printf("check is empty : %d \n", str_vec.empty(&str_vec));
 
 	// clear
 	/*
@@ -68,7 +68,7 @@ int main()
 
 	// destruct vector
 	printf("calling destructor.\n");
-	destruct_ftvec(str_vec);
+	destruct_ftvec(&str_vec);
 
 	printf("========================\n");
 	atexit(check_leak);
