@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_vector.c                                        :+:      :+:    :+:   */
+/*   ft_vector_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 20:27:44 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/29 19:05:16 by dogwak           ###   ########.fr       */
+/*   Created: 2023/12/12 13:41:56 by dogwak            #+#    #+#             */
+/*   Updated: 2023/12/12 14:00:03 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_vector_member.h"
 
-static void	set_member_function(t_ft_vector *this)
+void	delete_ftvec(t_ft_vector *this)
 {
-	this->at = ft_vec_at;
-	this->front = ft_vec_front;
-	this->back = ft_vec_back;
-	this->empty = ft_vec_empty;
-	this->clear = ft_vec_clear;
-	this->push_back = ft_vec_push_back;
-	this->resize = ft_vec_resize;
+	size_t		idx;
+
+	idx = -1;
+	if (this->pbuffer != NULL)
+	{
+		while (++idx < this->size)
+			this->delete_data(this->pbuffer + idx * this->data_size);
+		free(this->pbuffer);
+	}
+	free(this);
 }
 
-// default constructor
-t_ft_vector	*construct_ftvec(
+t_ft_vector	*new_ftvec(
 				int (*cd)(void *paddr, void *pparam),
 				void (*dd)(void *paddr),
 				size_t s)
@@ -46,40 +48,23 @@ t_ft_vector	*construct_ftvec(
 	this->capacity = DEFAULT_FT_VECTOR_SIZE;
 	this->size = 0;
 	this->data_size = s;
-	set_member_function(this);
+	set_vector_member_function(this);
 	return (this);
 }
 
-void	destruct_ftvec(t_ft_vector *this)
-{
-	size_t		idx;
-
-	idx = -1;
-	if (this->pbuffer != NULL)
-	{
-		while (++idx < this->size)
-			this->delete_data(this->pbuffer + idx * this->data_size);
-		free(this->pbuffer);
-	}
-	free(this);
-}
-
-// copy constructor, deep
-// only works for level 1 deep copy.
-// operation at object with more than level 1 is undefined.
-t_ft_vector	*construct_ftvec_copy(
+t_ft_vector	*new_ftvec_copy(
 				t_ft_vector *src,
 				int (*copy)(void *pdst_data, void *psrc_data))
 {
 	t_ft_vector		*this;
 
-	this = construct_ftvec(src->construct_data, src->delete_data,
+	this = new_ftvec(src->construct_data, src->delete_data,
 			src->data_size);
 	if (this == NULL)
 		return (NULL);
 	if (!this->resize(this, src->capacity))
 	{
-		destruct_ftvec(this);
+		delete_ftvec(this);
 		return (NULL);
 	}
 	this->size = 0;
@@ -88,10 +73,11 @@ t_ft_vector	*construct_ftvec_copy(
 		if (copy(this->at(this, this->size), src->at(src, this->size)))
 		{
 			this->size++;
-			destruct_ftvec(this);
+			delete_ftvec(this);
 			return (NULL);
 		}
 		this->size++;
 	}
 	return (this);
 }
+

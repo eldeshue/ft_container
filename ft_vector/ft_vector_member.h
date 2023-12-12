@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 20:18:27 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/24 15:45:55 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 13:44:52 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # ifndef DEFAULT_FT_VECTOR_SIZE
 #  define DEFAULT_FT_VECTOR_SIZE 256
 # endif
+
+// set member function
+void		set_vector_member_function(t_ft_vector *this);
 
 // vector contents access functions
 void		*ft_vec_at(t_ft_vector *this, size_t idx);

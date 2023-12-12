@@ -8,7 +8,8 @@ CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = -src
 
-SRCS = ft_vector.c ft_vector_access.c ft_vector_control.c
+SRCS = ft_vector_construct.c ft_vector_new.c ft_vector_set_member_function.c \
+		ft_vector_access.c ft_vector_control.c \
 
 OBJS = $(SRCS:.c=.o)
 
