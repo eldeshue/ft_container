@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:30:01 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:18:11 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:37:46 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_ft_str
 	void			(*clear)(struct s_ft_str *this);
 	int				(*push_back)(struct s_ft_str *this, char c);
 	int				(*resize)(struct s_ft_str *this, size_t size);
-	struct s_ft_str	*(*copy)(struct s_ft_str *this);
 	struct s_ft_str	*(*join)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	struct s_ft_str	*(*substr)(struct s_ft_str *this, size_t strt, size_t size);
 	int				(*append)(struct s_ft_str *this, char *cstr);

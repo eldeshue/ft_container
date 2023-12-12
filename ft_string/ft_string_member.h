@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:11:39 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:47:49 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 # ifndef DEFAULT_FT_STRING_SIZE
 #  define DEFAULT_FT_STRING_SIZE 256
 # endif
+
+// ft_string_set_member_function
+void		set_member_function(t_ft_string *this);
 
 // string access functions
 char		*ft_str_at(t_ft_string *this, size_t idx);
@@ -33,7 +36,6 @@ int			ft_str_append(t_ft_string *this, char *cstr);
 int			ft_str_add(t_ft_string *this, t_ft_string *ftstr);
 
 // string generate functions
-t_ft_string	*ft_str_copy(t_ft_string *this);
 t_ft_string	*ft_str_join(t_ft_string *this, t_ft_string *ftstr);
 t_ft_string	*ft_str_substr(t_ft_string *this, size_t start, size_t size);
 

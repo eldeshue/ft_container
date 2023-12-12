@@ -1,38 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_string.c                                        :+:      :+:    :+:   */
+/*   ft_string_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:19:00 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 12:23:34 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string_member.h"
 
-static void	set_member_function(t_ft_string *this)
-{
-	this->at = ft_str_at;
-	this->front = ft_str_front;
-	this->back = ft_str_back;
-	this->empty = ft_str_empty;
-	this->compare = ft_str_compare;
-	this->clear = ft_str_clear;
-	this->push_back = ft_str_push_back;
-	this->resize = ft_str_resize;
-	this->copy = ft_str_copy;
-	this->join = ft_str_join;
-	this->substr = ft_str_substr;
-	this->append = ft_str_append;
-	this->add = ft_str_add;
-	this->c_str = ft_str_c_str;
-	this->getline = ft_str_getline;
-	this->getword = ft_str_getword;
-}
-
-t_ft_string	*construct_ftstr(void)
+t_ft_string	*new_ftstr(void)
 {
 	t_ft_string		*this;
 	char			*tmp_buffer;
@@ -52,13 +32,13 @@ t_ft_string	*construct_ftstr(void)
 	return (this);
 }
 
-t_ft_string	*construct_ftstr_len(size_t len)
+t_ft_string	*new_ftstr_len(size_t len)
 {
 	t_ft_string		*this;
 	char			*tmp_buffer;
 
 	if (len == 0)
-		return (NULL);
+		len = DEFAULT_FT_STRING_SIZE;
 	this = (t_ft_string *)malloc(sizeof(t_ft_string));
 	tmp_buffer = (char *)malloc(len);
 	if (this == NULL || tmp_buffer == NULL)
@@ -74,12 +54,12 @@ t_ft_string	*construct_ftstr_len(size_t len)
 	return (this);
 }
 
-t_ft_string	*construct_ftstr_cstr(char *cstr)
+t_ft_string	*new_ftstr_cstr(char *cstr)
 {
 	t_ft_string		*this;
 	size_t			idx;
 
-	this = construct_ftstr();
+	this = new_ftstr();
 	if (this == NULL)
 		return (NULL);
 	idx = -1;
@@ -100,7 +80,29 @@ t_ft_string	*construct_ftstr_cstr(char *cstr)
 	return (this);
 }
 
-void	destruct_ftstr(t_ft_string *ftstr)
+t_ft_string	*new_ftstr_copy(t_ft_string *ftstr)
+{
+	t_ft_string		*new_string;
+	char			*tmp_buffer;
+	size_t			idx;
+
+	new_string = (t_ft_string *)malloc(sizeof(t_ft_string));
+	tmp_buffer = (char *)malloc(ftstr->capacity);
+	if (new_string == NULL || tmp_buffer == NULL)
+	{
+		free(new_string);
+		free(tmp_buffer);
+		return (NULL);
+	}
+	*new_string = *ftstr;
+	new_string->pbuffer = tmp_buffer;
+	idx = -1;
+	while (++idx < new_string->size)
+		new_string->pbuffer[idx] = ftstr->pbuffer[idx];
+	return (new_string);
+}
+
+void	delete_ftstr(t_ft_string *ftstr)
 {
 	if (ftstr != NULL)
 		free(ftstr->pbuffer);

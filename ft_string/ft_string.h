@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 20:30:21 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 12:23:50 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,16 @@ class t_ft_str
 };
 */
 
-t_ft_string	*construct_ftstr(void);
-t_ft_string	*construct_ftstr_len(size_t len);
-t_ft_string	*construct_ftstr_cstr(char *cstr);
+t_ft_string	construct_ftstr(void);
+t_ft_string	construct_ftstr_len(size_t len);
+t_ft_string	construct_ftstr_cstr(char *cstr);
+t_ft_string	construct_ftstr_copy(t_ft_string *ftstr);
 void		destruct_ftstr(t_ft_string *ftstr);
+
+t_ft_string	*new_ftstr(void);
+t_ft_string	*new_ftstr_len(size_t len);
+t_ft_string	*new_ftstr_cstr(char *cstr);
+t_ft_string	*new_ftstr_copy(t_ft_string *ftstr);
+void		delete_ftstr(t_ft_string *ftstr);
 
 #endif
