@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:27:58 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 12:25:09 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:20:17 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ static void	set_member_function(t_ft_string *this)
 	this->add = ft_str_add;
 	this->c_str = ft_str_c_str;
 	this->getline = ft_str_getline;
+	this->getword = ft_str_getword;
 }
 
 // copy constructor for ft_string

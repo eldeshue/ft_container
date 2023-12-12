@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:43:19 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 21:51:32 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:19:00 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ static void	set_member_function(t_ft_string *this)
 	this->add = ft_str_add;
 	this->c_str = ft_str_c_str;
 	this->getline = ft_str_getline;
+	this->getword = ft_str_getword;
 }
 
 t_ft_string	*construct_ftstr(void)

@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 16:30:01 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 11:34:21 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:18:11 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_ft_str
 	int				(*add)(struct s_ft_str *this, struct s_ft_str *ftstr);
 	char			*(*c_str)(struct s_ft_str *this);
 	int				(*getline)(struct s_ft_str *this, int fd);
+	int				(*getword)(struct s_ft_str *this, int fd);
 }	t_ft_string;
 
 #endif

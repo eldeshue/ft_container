@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:55:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 13:40:51 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:15:36 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,32 @@ int	ft_str_getline(t_ft_string *this, int fd)
 	total_size = 0;
 	read_size = read(fd, &input_char, 1);
 	while (read_size > 0 && input_char != '\n')
+	{
+		if (!ft_str_push_back(this, input_char))
+			return (-1);
+		read_size = read(fd, &input_char, 1);
+		if (read_size < 0)
+			return (-1);
+		total_size += read_size;
+	}
+	return (total_size);
+}
+
+int	ft_str_getword(t_ft_string *this, int fd)
+{
+	char		input_char;
+	ssize_t		read_size;
+	ssize_t		total_size;
+
+	if (fd < 0)
+		return (-1);
+	this->size = 0;
+	input_char = -1;
+	total_size = 0;
+	read_size = read(fd, &input_char, 1);
+	while (read_size > 0
+		&& (input_char != ' ' || input_char != '\t' || input_char != '\n'
+			|| input_char != '\v' || input_char != '\f' || input_char != '\r'))
 	{
 		if (!ft_str_push_back(this, input_char))
 			return (-1);

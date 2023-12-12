@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 12:45:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/23 20:20:27 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/12 11:11:39 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ t_ft_string	*ft_str_substr(t_ft_string *this, size_t start, size_t size);
 int			ft_str_compare(t_ft_string *this, t_ft_string *ftstr);
 char		*ft_str_c_str(t_ft_string *this);
 int			ft_str_getline(t_ft_string *this, int fd);
+int			ft_str_getword(t_ft_string *this, int fd);
 
 #endif
