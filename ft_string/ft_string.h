@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 10:47:43 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 12:23:50 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/21 19:22:38 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ class t_ft_str
 	int				add(t_ft_string *this, t_ft_string *ftstr);
 	int				*c_str(struct s_ft_str *this);
 	int				getline(struct s_ft_str *this, int fd);
+	int				getword(struct s_ft_str *this, int fd);
 };
 */
 
