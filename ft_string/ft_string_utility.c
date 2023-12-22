@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:55:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 11:15:36 by dogwak           ###   ########.fr       */
+/*   Updated: 2023/12/22 15:19:01 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,10 @@ int	ft_str_compare(t_ft_string *this, t_ft_string *ftstr)
 
 char	*ft_str_c_str(t_ft_string *this)
 {
-	char		*cstr;
-	size_t		idx;
-
-	cstr = (char *)malloc(sizeof(char) * (this->size + 1));
-	if (cstr == NULL)
+	if (!this || !ft_str_push_back(this, '\0'))
 		return (NULL);
-	idx = -1;
-	while (++idx < this->size)
-		cstr[idx] = this->pbuffer[idx];
-	cstr[this->size] = '\0';
-	return (cstr);
+	this->size--;
+	return (this->pbuffer);
 }
 
 int	ft_str_getline(t_ft_string *this, int fd)
