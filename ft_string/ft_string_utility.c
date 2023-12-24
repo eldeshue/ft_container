@@ -64,8 +64,8 @@ int	ft_str_getline(t_ft_string *this, int fd)
 
 static int	is_space(char c)
 {
-	if (c != ' ' || c != '\t' || c != '\n' || c != '\v' || c != '\f'
-		|| c != '\r')
+	if (c == ' ' || c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r')
 		return (1);
 	return (0);
 }

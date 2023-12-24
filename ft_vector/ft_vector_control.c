@@ -58,7 +58,7 @@ int	ft_vec_push_back(t_ft_vector *this, void *param)
 	if (this->size == this->capacity)
 		if (!ft_vec_resize(this, this->capacity * 2))
 			return (0);
-	if (this->construct_data(this->at(this, this->size++), param))
+	if (!this->construct_data(this->at(this, this->size++), param))
 		return (0);
 	return (1);
 }
