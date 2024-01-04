@@ -49,6 +49,7 @@ int	ft_vec_resize(t_ft_vector *this, size_t new_size)
 			= ((unsigned int *)this->pbuffer)[idx];
 	free(this->pbuffer);
 	this->pbuffer = new_buffer;
+	this->capacity = new_size;
 	return (1);
 }
 
