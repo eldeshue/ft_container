@@ -45,8 +45,8 @@ int	ft_vec_resize(t_ft_vector *this, size_t new_size)
 	}
 	idx = -1;
 	while (++idx < (this->size * this->data_size))
-		((unsigned int *)new_buffer)[idx]
-			= ((unsigned int *)this->pbuffer)[idx];
+		((unsigned char *)new_buffer)[idx]
+			= ((unsigned char *)this->pbuffer)[idx];
 	free(this->pbuffer);
 	this->pbuffer = new_buffer;
 	this->capacity = new_size;
