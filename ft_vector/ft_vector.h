@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vector.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 20:12:02 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 14:05:34 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/01/01 11:39:27 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,29 +36,22 @@ class t_ft_vector
 */
 
 // default constructor
-t_ft_vector	construct_ftvec(
-				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *paddr),
-				size_t s);
+t_ft_vector	construct_ftvec(int (*cd)(void *paddr, void *pparam),
+				void (*dd)(void *paddr), size_t s);
 
 // copy constructor
-t_ft_vector	construct_ftvec_copy(
-				t_ft_vector *src,
-				int (*copy)(void *pdst_data, void *psrc_data));
+t_ft_vector	construct_ftvec_copy(t_ft_vector *src, int (*copy)(void *pdst_data,
+					void *psrc_data));
 
 // destructor
 void		destruct_ftvec(t_ft_vector *this);
 
-t_ft_vector	*new_ftvec(
-				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *paddr),
-				size_t s);
+t_ft_vector	*new_ftvec(int (*cd)(void *paddr, void *pparam),
+				void (*dd)(void *paddr), size_t s);
 
-t_ft_vector	*new_ftvec_copy(
-				t_ft_vector *src,
-				int (*copy)(void *pdst_data, void *psrc_data));
+t_ft_vector	*new_ftvec_copy(t_ft_vector *src, int (*copy)(void *pdst_data,
+					void *psrc_data));
 
 void		delete_ftvec(t_ft_vector *this);
-
 
 #endif

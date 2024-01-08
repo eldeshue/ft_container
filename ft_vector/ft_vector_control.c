@@ -6,7 +6,7 @@
 /*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 19:51:40 by dogwak            #+#    #+#             */
-/*   Updated: 2023/11/24 19:52:26 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/01/04 14:11:31 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_vec_clear(t_ft_vector *this)
 {
-	size_t			idx;
+	size_t	idx;
 
 	idx = -1;
 	while (++idx < this->size)
@@ -26,8 +26,8 @@ void	ft_vec_clear(t_ft_vector *this)
 
 int	ft_vec_resize(t_ft_vector *this, size_t new_size)
 {
-	void			*new_buffer;
-	size_t			idx;
+	void	*new_buffer;
+	size_t	idx;
 
 	if (new_size == 0 || new_size == this->size)
 		return (0);

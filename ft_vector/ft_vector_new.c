@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_vector_new.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dogwak <dogwak@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dogwak <dogwak@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 13:41:56 by dogwak            #+#    #+#             */
-/*   Updated: 2023/12/12 14:00:03 by dogwak           ###   ########.fr       */
+/*   Updated: 2024/01/01 11:39:39 by dogwak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	delete_ftvec(t_ft_vector *this)
 {
-	size_t		idx;
+	size_t	idx;
 
 	idx = -1;
 	if (this->pbuffer != NULL)
@@ -26,10 +26,8 @@ void	delete_ftvec(t_ft_vector *this)
 	free(this);
 }
 
-t_ft_vector	*new_ftvec(
-				int (*cd)(void *paddr, void *pparam),
-				void (*dd)(void *paddr),
-				size_t s)
+t_ft_vector	*new_ftvec(int (*cd)(void *paddr, void *pparam),
+		void (*dd)(void *paddr), size_t s)
 {
 	t_ft_vector	*this;
 	void		*tmp_buffer;
@@ -52,14 +50,12 @@ t_ft_vector	*new_ftvec(
 	return (this);
 }
 
-t_ft_vector	*new_ftvec_copy(
-				t_ft_vector *src,
-				int (*copy)(void *pdst_data, void *psrc_data))
+t_ft_vector	*new_ftvec_copy(t_ft_vector *src, int (*copy)(void *pdst_data,
+			void *psrc_data))
 {
-	t_ft_vector		*this;
+	t_ft_vector	*this;
 
-	this = new_ftvec(src->construct_data, src->delete_data,
-			src->data_size);
+	this = new_ftvec(src->construct_data, src->delete_data, src->data_size);
 	if (this == NULL)
 		return (NULL);
 	if (!this->resize(this, src->capacity))
@@ -80,4 +76,3 @@ t_ft_vector	*new_ftvec_copy(
 	}
 	return (this);
 }
-
