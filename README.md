@@ -54,7 +54,7 @@ ft_container was created by **[eldeshue](https://github.com/eldeshue)**.
 
 **Q:** Could using this library be cheating?
 
-**A:** I'm not so sure. Copying codes are forbidden in ecole42 because it is not good for education. I recommend you to fork and modify the library. 
+**A:** I'm not so sure. Copying codes are forbidden in ecole42 because it is not good for education. I recommend you to fork and modify the library. It's up to you.
 
 **Q:** How do I use ft_container?
 
