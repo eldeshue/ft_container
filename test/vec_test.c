@@ -1,4 +1,9 @@
-// cc vec_test.c -L../ft_vector -lftvector -o vec_test
+
+/*
+	example of using ft_vector with custom data type
+
+	cc vec_test.c -L../ft_vector -lftvector -o vec_test
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "../ft_vector/ft_vector.h"
@@ -38,16 +43,13 @@ void destruct_test(void *paddr)
 	}
 }
 
-void check_leak(void)
-{
-	system("leaks --list -- vec_test");
-}
-
 void print_test_vec_all(t_ft_vector *vec)
 {
+	t_test *temp;
 	for (int i = 0; i < vec->size; ++i)
 	{
-		printf("%s\n", ((t_test *)(vec->at(vec, i)))->str);
+		temp = vec->at(vec, i);
+		printf("%d\'th content : %d, %s\n", i, temp->number, temp->str);
 	}
 }
 
@@ -60,9 +62,10 @@ int main()
 
 	// constructor test
 	printf("call constructor\n");
-	t_ft_vector *test_vec = construct_ftvec(construct_test,
-		destruct_test, sizeof(t_test));
+	t_ft_vector *test_vec = new_ftvec(construct_test,
+									  destruct_test, sizeof(t_test));
 	printf("check is empty : %d \n", test_vec->empty(test_vec));
+	printf("========================\n");
 
 	// push_back test
 	printf("call push_back\n");
@@ -74,30 +77,30 @@ int main()
 	// content check
 	printf("call at, check content.\n");
 	print_test_vec_all(test_vec);
+	printf("========================\n");
 
 	// front, back check
 	printf("call ft_vector front : %s\n", ((t_test *)(test_vec->front(test_vec)))->str);
 	printf("call ft_vector back  : %s\n", ((t_test *)(test_vec->back(test_vec)))->str);
+	printf("========================\n");
 
 	// resize
 	printf("call resize, change to 5, check content.\n");
 	test_vec->resize(test_vec, 5);
 	print_test_vec_all(test_vec);
 	printf("check is empty : %d \n", test_vec->empty(test_vec));
+	printf("========================\n");
 
 	// clear
-	/*
 	printf("call clear, check content.\n");
 	test_vec->clear(test_vec);
-	print_test_vec_all(test_vec);	// do nothing
+	print_test_vec_all(test_vec); // do nothing
 	printf("check is empty : %d \n", test_vec->empty(test_vec));
-	*/
+	printf("========================\n");
 
 	// destruct vector
 	printf("calling destructor.\n");
 	destruct_ftvec(test_vec);
 
-	printf("========================\n");
-	atexit(check_leak);
 	return (0);
 }
