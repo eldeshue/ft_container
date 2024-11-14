@@ -50,11 +50,11 @@ ft_container was created by **[eldeshue](https://github.com/eldeshue)**.
 
 **Q:** Can I use this library with C++?
 
-**A:** There are no good to use this library in C++, use STL. In fact, I used 'this' symbol in this code. So It can cause catastrophe.
+**A:** There are no good to use this library in C++, use STL. In fact, I used 'this' symbol in this code. So It can cause problem.
 
 **Q:** Could using this library be cheating?
 
-**A:** I'm not so sure, I used this library several times for C projects in ecole42. 
+**A:** I'm not so sure. Copying codes are forbidden in ecole42 because it is not good for education. I recommend you to fork and modify the library. 
 
 **Q:** How do I use ft_container?
 
