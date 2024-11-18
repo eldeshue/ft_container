@@ -62,4 +62,4 @@ ft_container was created by **[eldeshue](https://github.com/eldeshue)**.
 
 ## **Contact**
 
-If you have any questions or comments about Project Title, please contact **[eldeshue](eldeshue@naver.com)** or **[dogwak](dogwak@student.42seoul.kr)**.
+If you have any questions or comments about Project Title, please contact **[eldeshue](mailto:eldeshue@naver.com)**.
